@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/time.h>
+#include <time.h>
 
 
 int main(int argc, char *argv[]) {
@@ -74,7 +75,7 @@ int main(int argc, char *argv[]) {
     long response_time = end_ms - start_ms;
 
     // our output
-    printf("%s,%d,%ld ms\n", server_ip, port, response_time);
+    printf("%lu,%s,%d,%ld\n",(unsigned long)time(NULL) ,server_ip, port, response_time);
 
     return 0;
 }
