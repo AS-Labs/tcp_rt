@@ -1,11 +1,7 @@
 # tcp_rt
 
-## This is a simple program, where we get a server ip and port to measure the response time.
+## This is a simple program, where we get a server ip and port to measure the response time from a file.
 
-output should be a timestamp with the response time (timestamp,tcp response time)
+output should be a timestamp with the response time (timestamp,server_ip,port,tcp response time)
 
-- Will be using the below:
-	- first arg as target servers IP
-	- second arg as the target port
-	- create socket variable to hold the fd number given from the socket syscall
-	- create a struct for sockaddr_in with a variable name for the server IP
+Usage: tcp_rt /path/to/test.txt
