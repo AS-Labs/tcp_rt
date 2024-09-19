@@ -4,4 +4,11 @@
 
 output should be a timestamp with the response time (timestamp,server_ip,port,tcp response time)
 
-Usage: tcp_rt /path/to/test.txt
+Usage: `tcp_rt /path/to/test.txt`
+
+
+
+### Building
+```bash
+gcc tcp_rt.c -o tcp_rt
+```
