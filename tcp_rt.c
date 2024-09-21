@@ -2,10 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <time.h>
+
+
+
+
 
 int connection_lat(char *ip_var, char *port_var) {
     // first arg is the target servers IP
@@ -23,6 +28,7 @@ int connection_lat(char *ip_var, char *port_var) {
         perror("socket");
         return 1;
     }
+    fcntl(sock, F_SETFL, O_NONBLOCK);
 
     // in defining the sockaddr_in as SERVERIP
     // we get access to the struct of sockaddr_in
@@ -31,6 +37,10 @@ int connection_lat(char *ip_var, char *port_var) {
     // unsigned short   sin_port;   
     // struct in_addr   sin_addr;
     // char             sin_zero[8];
+    //
+
+    fd_set fdset;
+    struct timeval tv;
 
     struct sockaddr_in SERVERIP;
     // specify the SERVERIP as IPv4
@@ -42,9 +52,13 @@ int connection_lat(char *ip_var, char *port_var) {
 
     struct timeval start_time, end_time;
 
+    
+
     // timeval gives the time_t tv_sec in seconds and assigned to a pointer start_time var
     // timezone is given as null, as that is not required?
     gettimeofday(&start_time, NULL);
+
+
 
     // initiate a connection on a socket with the connect() syscall.
     // if addr length is -1 then close the socket fd and return 1.
@@ -53,6 +67,22 @@ int connection_lat(char *ip_var, char *port_var) {
         perror("connect");
         close(sock);
         return 1;
+    }
+
+    FD_ZERO(&fdset);
+    FD_SET(sock, &fdset);
+    tv.tv_sec = 2;
+    tv.tv_sec = 0;
+
+    if (select(sock + 1, NULL, &fdset, NULL, &tv) == 1) {
+        int so_error;
+        socklen_t len = sizeof so_error;
+
+        getsockopt(sock, SOL_SOCKET, SO_ERROR, &so_error, &len);
+
+        if(so_error == 0) {
+            printf("%s:%d open\n", server_ip, PORT);
+        }
     }
 
     // getting the end time after doing the connection to measure response
