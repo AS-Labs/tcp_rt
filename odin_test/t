@@ -1,0 +1,188 @@
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(11:5) Error: 'os.args' of type '[]string' has no field 'count' 
+        if os.args.count < 2 { 
+           ^~~~~~^                                                                                       
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(24:23) Error: Cannot assign value 'f' of type 'Handle' to '^invalid type' in a procedure argument 
+        records := parse_csv(f) 
+                             ^                                                                           
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(35:3) Error: Assignment count mismatch '2' = '1' 
+        port, err := strconv.atoi(record[1]) 
+        ^                                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(41:14) Error: 'second' is not declared by 'time' 
+        timeout := time.second 
+                   ^~~~~~~~~~^                                                                           
+        Suggestion: Did you mean?                                                                        
+                Second 
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(44:9) Error: Redeclaration of 'err' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(35:9) 
+        conn, err := net.dial_tcp(ip, port, timeout) 
+              ^                                                                                          
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(46:25) Error: 'time.now()' of type 'Time' has no field 'unix' 
+        current_time_unix := time.now().unix() 
+                             ^~~~~~~~~^                                                                  
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(50:9) Error: 'conn' of type 'TCP_Socket' has no field 'close' 
+        defer conn.close() 
+              ^~~^                                                                                       
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(53:24) Error: Operator '-' is only allowed with numeric expressions 
+        latency := (end_time - start_time).seconds() * 1000.0 
+                             ^                                                                           
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(54:24) Error: 'time.now()' of type 'Time' has no field 'unix' 
+        current_time_unix := time.now().unix() 
+                             ^~~~~~~~~^                                                                  
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(63:23) Error: 'File' is not declared by 'os' 
+        parse_csv :: proc(f: ^os.File) -> [][]string { 
+                              ^~~~~~^                                                                    
+        Suggestion: Did you mean?                                                                        
+                R_OK 
+                exit 
+                EMFILE 
+                args 
+                ENFILE 
+                bind 
+                open 
+                EADV 
+                fork 
+                F_OK 
+                _dup 
+                read 
+                recv 
+                X_OK 
+                W_OK 
+                ARCH 
+                poll 
+                send 
+                stat 
+                seek 
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(64:11) Error: 'read_lines' is not declared by 'os' 
+        lines := os.read_lines(f) 
+                 ^~~~~~~~~~~~^                                                                           
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(67:14) Error: Cannot iterate over 'lines' of type 'invalid type' 
+        for line in lines { 
+                    ^~~~^                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(68:26) Error: Undeclared name: line 
+        parts := strings.split(line, ":") 
+                               ^~~^                                                                      
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(75:8) Error: Redeclaration of 'fmt' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(3:8) 
+        import "core:fmt" 
+               ^                                                                                         
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(76:8) Error: Redeclaration of 'net' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(4:8) 
+        import "core:net" 
+               ^                                                                                         
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(77:8) Error: Redeclaration of 'os' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(5:8) 
+        import "core:os" 
+               ^                                                                                         
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(78:8) Error: Redeclaration of 'strconv' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(6:8) 
+        import "core:strconv" 
+               ^                                                                                         
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(79:8) Error: Redeclaration of 'time' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(8:8) 
+        import "core:time" 
+               ^                                                                                         
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(81:1) Error: Redeclaration of 'main' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(10:1) 
+        main :: proc() { 
+        ^                                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(82:5) Error: 'os.args' of type '[]string' has no field 'count' 
+        if os.args.count < 2 { 
+           ^~~~~~^                                                                                       
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(96:2) Error: Assignment count mismatch '2' = '1' 
+        records, err := parse_csv(f) 
+        ^                                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(96:11) Error: Redeclaration of 'err' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(88:5) 
+        records, err := parse_csv(f) 
+                 ^                                                                                       
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(96:28) Error: Cannot assign value 'f' of type 'Handle' to '^invalid type' in a procedure argument 
+        records, err := parse_csv(f) 
+                                  ^                                                                      
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(107:3) Error: Assignment count mismatch '2' = '1' 
+        port, err := strconv.atoi(record[1]) 
+        ^                                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(113:14) Error: 'second' is not declared by 'time' 
+        timeout := time.second 
+                   ^~~~~~~~~~^                                                                           
+        Suggestion: Did you mean?                                                                        
+                Second 
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(116:9) Error: Redeclaration of 'err' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(107:9) 
+        conn, err := net.dial_tcp(ip, port, timeout) 
+              ^                                                                                          
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(120:25) Error: 'time.now()' of type 'Time' has no field 'unix' 
+        current_time_unix := time.now().unix() 
+                             ^~~~~~~~~^                                                                  
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(124:10) Error: 'conn' of type 'TCP_Socket' has no field 'close' 
+        defer conn.close() 
+              ^~~^                                                                                       
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(126:25) Error: 'time.now()' of type 'Time' has no field 'unix' 
+        current_time_unix := time.now().unix() 
+                             ^~~~~~~~~^                                                                  
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(128:25) Error: Operator '-' is only allowed with numeric expressions 
+        latency := (end_time - start_time).seconds() * 1000.0 
+                             ^                                                                           
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(142:1) Error: Redeclaration of 'parse_csv' in this scope 
+        at /home/user/Documents/code/tcp_rt/odin_test/main.odin(63:1) 
+        parse_csv :: proc(f: ^os.File) -> ([][]string, os.Error) { 
+        ^                                                                                                
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(142:23) Error: 'File' is not declared by 'os' 
+        parse_csv :: proc(f: ^os.File) -> ([][]string, os.Error) { 
+                              ^~~~~~^                                                                    
+        Suggestion: Did you mean?                                                                        
+                R_OK 
+                exit 
+                EMFILE 
+                args 
+                ENFILE 
+                bind 
+                open 
+                EADV 
+                fork 
+                F_OK 
+                _dup 
+                read 
+                recv 
+                X_OK 
+                W_OK 
+                ARCH 
+                poll 
+                send 
+                stat 
+                seek 
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(143:7) Error: 'csv.Reader' is not a type 
+        r := csv.Reader{} 
+             ^~~~~~~~~^                                                                                  
+                                                                                                         
+/home/user/Documents/code/tcp_rt/odin_test/main.odin(145:2) Error: Expected 2 return values, got 1 (^invalid type) 
+        return r.read_all(f) 
+        ^~~~~~~~~~~~~~~~~~~^                                                                             
+                              
